@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ParkiScan Neuroverse · Game + Digital Twin</title>
+<link rel="stylesheet" href="static/style.css">
+<script>window.PARKISCAN_STATIC = {"shift": [-60, -30, 0, 30, 60], "extra": [14.0, 16.0, 18.0, 20.0], "sleep": [-1.0, 0.0, 1.0]};</script>
+<script src="static/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" class="logo" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M7 17h4l2.5-6 4 12 3-8 1.5 2H25" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><div class="brand-name">ParkiScan Neuroverse <b>Game + Digital Twin</b></div><div class="brand-sub">Movement Disorders Clinic · clinician view</div></div>
+  </div>
+  <div class="topbar-right">
+    <span class="pill pill-warn" title="All records are synthetic or anonymised open data">SYNTHETIC / ANONYMISED DATA ONLY</span>
+    <span class="pill" title="Pre-computed copy: the what-if offers a grid of scenarios; run the service for any combination">OFFLINE COPY</span>
+    <span class="clock" id="clock">Now · day 6, 13:00</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-head">
+      <h2>Patients</h2>
+      <input id="search" type="search" placeholder="Search name or ID" aria-label="Search patients">
+      <div class="filters" role="group" aria-label="Filter by risk">
+        <button class="chip active" data-f="all">All</button>
+        <button class="chip" data-f="high">High</button>
+        <button class="chip" data-f="elevated">Elevated</button>
+        <button class="chip" data-f="stable">Stable</button>
+      </div>
+    </div>
+    <ul id="plist" class="plist"></ul>
+    <div class="side-foot">Sorted by peak 2-hour freezing risk in the next 24 h.</div>
+  </aside>
+
+  <main id="main" class="main">
+    <section class="card empty" id="empty">Loading the virtual patients…</section>
+
+    <section id="patient" hidden>
+      <div class="card head">
+        <div class="avatar" id="p-avatar">--</div>
+        <div class="who">
+          <h1 id="p-name">—</h1>
+          <div class="meta" id="p-meta"></div>
+          <div class="tags" id="p-tags"></div>
+        </div>
+        <div class="prov" id="p-prov"></div>
+      </div>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="overview">Twin overview</button>
+        <button class="tab" data-tab="wearables">Wearables · 7 days</button>
+        <button class="tab" data-tab="replay" id="tab-replay">Real sensor replay</button>
+        <button class="tab" data-tab="game" id="tab-game">Game biomarkers</button>
+        <button class="tab" data-tab="ehr">Health record</button>
+        <button class="tab" data-tab="model">Model card</button>
+      </nav>
+
+      <!-- OVERVIEW -->
+      <div class="pane" data-pane="overview">
+        <div class="kpis" id="kpis"></div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-h"><h3>Freezing-of-gait risk · next 2 h</h3><span class="legend"><i class="sw s1"></i>Twin forecast <i class="sw s2"></i>What-if <i class="sw thr"></i>Alert threshold</span></div>
+            <div class="chart-box"><canvas id="c-risk"></canvas></div>
+            <p class="note">Left of the line: last 24 h (observed streams). Right: forecast from the prescribed dose schedule and expected activity — no future sensor data is used.</p>
+          </div>
+          <div class="card">
+            <div class="card-h"><h3>Alerts · next 24 h</h3><span class="muted" id="alert-count"></span></div>
+            <ul id="alerts" class="alerts"></ul>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-h"><h3>Levodopa · dopaminergic effect (ON / OFF)</h3><span class="legend"><i class="sw s3"></i>Effect <i class="sw s2"></i>What-if <i class="sw off"></i>OFF zone <i class="tri"></i>Dose</span></div>
+            <div class="chart-box"><canvas id="c-effect"></canvas></div>
+            <p class="note">Mechanistic PK/PD model: 1-compartment oral levodopa (t½ 1.5 h, Tmax ≈ 1 h), effect-site lag, individual EC50 and long-duration response.</p>
+          </div>
+          <div class="card whatif">
+            <div class="card-h"><h3>What-if simulator</h3><span class="muted">for discussion — not a dosing recommendation</span></div>
+            <label>Shift every remaining dose <output id="o-shift">0 min</output><input id="w-shift" type="range" min="-120" max="120" step="15" value="0"></label>
+            <label>Add one dose at <select id="w-extra"><option value="">— none —</option></select></label>
+            <label>Dose size <select id="w-mg"><option value="">as prescribed</option><option>100</option><option>150</option><option>200</option><option>250</option></select></label>
+            <label>Tonight's sleep <output id="o-sleep">+0 h</output><input id="w-sleep" type="range" min="-2" max="2" step="0.5" value="0"></label>
+            <div class="btns"><button id="w-run" class="btn primary">Simulate on the twin</button><button id="w-reset" class="btn">Reset</button></div>
+            <table class="cmp" id="w-table" hidden>
+              <thead><tr><th></th><th>Current plan</th><th>What-if</th><th>Change</th></tr></thead><tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEARABLES -->
+      <div class="pane" data-pane="wearables" hidden>
+        <div class="grid-2">
+          <div class="card"><div class="card-h"><h3>Steps per day</h3></div><div class="chart-box sm"><canvas id="c-steps"></canvas></div></div>
+          <div class="card"><div class="card-h"><h3>Sleep stages per night</h3><span class="legend"><i class="sw q1"></i>Deep <i class="sw q2"></i>REM <i class="sw q3"></i>Light</span></div><div class="chart-box sm"><canvas id="c-sleep"></canvas></div></div>
+          <div class="card"><div class="card-h"><h3>Overnight HRV (RMSSD)</h3><span class="muted" id="hrv-base"></span></div><div class="chart-box sm"><canvas id="c-hrv"></canvas></div></div>
+          <div class="card"><div class="card-h"><h3>Gait-instability index per day</h3><span class="muted">ankle IMU freezing detector</span></div><div class="chart-box sm"><canvas id="c-inst"></canvas></div></div>
+        </div>
+        <p class="note pad">Consumer-wearable streams are simulated (Apple Health / Google Fit style) and labelled as such. The instability index is what the trained Daphnet freezing detector would report from an ankle sensor.</p>
+      </div>
+
+      <!-- REPLAY -->
+      <div class="pane" data-pane="replay" hidden>
+        <div class="card">
+          <div class="card-h"><h3>Real accelerometer replay · seconds-ahead freezing warning</h3>
+            <div class="replay-ctl"><select id="r-run" aria-label="Recording"></select><button id="r-play" class="btn primary">▶ Play</button><select id="r-speed" aria-label="Speed"><option value="4">4×</option><option value="10" selected>10×</option><option value="30">30×</option></select></div></div>
+          <div class="chart-box tall"><canvas id="c-replay"></canvas></div>
+          <div class="replay-stats" id="r-stats"></div>
+          <p class="note" id="r-note"></p>
+        </div>
+      </div>
+
+      <!-- GAME -->
+      <div class="pane" data-pane="game" hidden>
+        <div class="card"><div class="card-h"><h3>Digital biomarkers from ParkiScan Neuroverse</h3><span class="muted">observed in the game · exploratory, not diagnostic</span></div>
+          <div id="game" class="game-grid"></div></div>
+      </div>
+
+      <!-- EHR -->
+      <div class="pane" data-pane="ehr" hidden>
+        <div class="grid-2">
+          <div class="card"><div class="card-h"><h3>Conditions</h3></div><table class="tbl" id="t-cond"></table></div>
+          <div class="card"><div class="card-h"><h3>Medications</h3><span class="muted" id="ledd"></span></div><table class="tbl" id="t-med"></table></div>
+        </div>
+        <div class="card"><div class="card-h"><h3>Observations · scales, labs, genetics</h3><button class="btn sm" id="fhir-btn">View FHIR bundle</button></div><table class="tbl" id="t-obs"></table>
+          <pre id="fhir" class="json" hidden></pre></div>
+      </div>
+
+      <!-- MODEL -->
+      <div class="pane" data-pane="model" hidden>
+        <div class="grid-2">
+          <div class="card"><div class="card-h"><h3>Seconds ahead · real data (Daphnet)</h3><span class="pill pill-ok">REAL DATA · LOSO</span></div><div id="m-fog"></div></div>
+          <div class="card"><div class="card-h"><h3>Hours ahead · digital twin fusion</h3><span class="pill pill-warn">SYNTHETIC COHORT</span></div><div id="m-twin"></div></div>
+        </div>
+        <div class="card"><div class="card-h"><h3>Intended use and limits</h3></div>
+          <ul class="limits">
+            <li>Research prototype for the Happiest Health Digital Twin challenge. <b>Not a medical device</b>; no output is a diagnosis or a treatment instruction.</li>
+            <li>Seconds-ahead freezing forecast: trained and evaluated leave-one-subject-out on 10 people (Daphnet, lab protocol that provokes freezing). Home performance will differ.</li>
+            <li>Hours-ahead twin risk: trained on a synthetic cohort whose labels come from a documented simulator. It shows the fusion pipeline works end to end; it is not clinical accuracy.</li>
+            <li>All patient records are synthetic (FHIR R4-shaped, tagged SYNTHETIC) or anonymised open data, as required by the DPDP Act sandbox rules.</li>
+          </ul></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="tip" class="tip" hidden></div>
+<script src="static/app.js"></script>
+</body>
+</html>
