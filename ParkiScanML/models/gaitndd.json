@@ -1,0 +1,71 @@
+{
+  "dataset": "gaitndd",
+  "model": "random_forest",
+  "features": [
+    "left_stride_s_mean",
+    "left_stride_s_std",
+    "left_stride_s_cv",
+    "left_stride_s_dfa_alpha",
+    "right_stride_s_mean",
+    "right_stride_s_std",
+    "right_stride_s_cv",
+    "right_stride_s_dfa_alpha",
+    "swing_pct_mean",
+    "swing_pct_std",
+    "swing_pct_cv",
+    "stance_pct_mean",
+    "stance_pct_std",
+    "stance_pct_cv",
+    "double_support_pct_mean",
+    "double_support_pct_std",
+    "double_support_pct_cv",
+    "stride_asymmetry_pct"
+  ],
+  "task": "classification",
+  "label": "PD (1) vs control (0)",
+  "trained_utc": "2026-10-12T07:07:55.232994+00:00",
+  "n_participants": 31,
+  "disclaimer": "Research benchmark on a small public dataset with participant-grouped cross-validation. Not clinically validated; not for diagnosis or screening decisions.",
+  "cv_summary": {
+    "recording_level": {
+      "n": 31,
+      "balanced_accuracy": 0.8375,
+      "f1": 0.8275862068965517,
+      "sensitivity": 0.8,
+      "specificity": 0.875,
+      "roc_auc": 0.9,
+      "roc_auc_95ci_participant_bootstrap": [
+        0.7543288367978771,
+        1.0
+      ]
+    },
+    "roc_auc_across_repeats": {
+      "mean": 0.8879166666666667,
+      "sd": 0.01346291201783629,
+      "repeats": 5
+    }
+  },
+  "quality_flags": [
+    "SMALL_SAMPLE: only 31 participants",
+    "TINY_TEST_SET: independent test has only 8 participants; its metrics are unstable"
+  ],
+  "decision_threshold": 0.6524,
+  "independent_test": {
+    "n": 8,
+    "threshold": 0.6524,
+    "confusion_matrix": {
+      "tn": 4,
+      "fp": 0,
+      "fn": 0,
+      "tp": 4
+    },
+    "sensitivity_recall": 1.0,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "indeterminate_fraction": 0.0,
+    "model": "logistic_regression"
+  },
+  "usable_for_research_scores": true
+}

@@ -1,0 +1,50 @@
+{
+ "dataset": "synthetic_twin_cohort",
+ "features": [
+  "age",
+  "disease_duration_y",
+  "hoehn_yahr",
+  "updrs3_off",
+  "nfogq",
+  "falls_12m",
+  "moca",
+  "ledd_mg",
+  "orthostatic_hypotension",
+  "depression",
+  "rem_sleep_behaviour_disorder",
+  "gba_carrier",
+  "hour_sin",
+  "hour_cos",
+  "steps_1h",
+  "steps_2h",
+  "hr_1h",
+  "sleep_total_h",
+  "sleep_debt_h",
+  "deep_min",
+  "rem_min",
+  "awakenings",
+  "rmssd_rel",
+  "instab_2h",
+  "instab_24h",
+  "pk_effect_now",
+  "pk_effect_min_2h",
+  "pk_off_frac_2h",
+  "min_since_dose",
+  "min_to_dose"
+ ],
+ "horizon_h": 2.0,
+ "metrics": {
+  "auc": 0.8063136214557381,
+  "pr_auc": 0.281002576416085,
+  "brier": 0.0547350587760701,
+  "n_features": 30
+ },
+ "top_decile": {
+  "threshold": 0.15407573988334003,
+  "capture": 0.4488888888888889,
+  "precision": 0.2986559139784946,
+  "lift": 4.488888888888889
+ },
+ "evidence": "simulated labels \u2014 demonstrates the fusion pipeline, not clinical accuracy",
+ "usable_for_research_scores": false
+}

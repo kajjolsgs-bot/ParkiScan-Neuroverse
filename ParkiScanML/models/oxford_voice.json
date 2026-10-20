@@ -1,0 +1,87 @@
+{
+  "dataset": "oxford_voice",
+  "model": "neural_net_mlp",
+  "features": [
+    "MDVP:Fo(Hz)",
+    "MDVP:Fhi(Hz)",
+    "MDVP:Flo(Hz)",
+    "MDVP:Jitter(%)",
+    "MDVP:Jitter(Abs)",
+    "MDVP:RAP",
+    "MDVP:PPQ",
+    "Jitter:DDP",
+    "MDVP:Shimmer",
+    "MDVP:Shimmer(dB)",
+    "Shimmer:APQ3",
+    "Shimmer:APQ5",
+    "MDVP:APQ",
+    "Shimmer:DDA",
+    "NHR",
+    "HNR",
+    "RPDE",
+    "DFA",
+    "spread1",
+    "spread2",
+    "D2",
+    "PPE"
+  ],
+  "task": "classification",
+  "label": "PD (1) vs healthy (0)",
+  "trained_utc": "2026-10-12T07:07:55.232994+00:00",
+  "n_participants": 32,
+  "disclaimer": "Research benchmark on a small public dataset with participant-grouped cross-validation. Not clinically validated; not for diagnosis or screening decisions.",
+  "cv_summary": {
+    "recording_level": {
+      "n": 195,
+      "balanced_accuracy": 0.688562925170068,
+      "f1": 0.868421052631579,
+      "sensitivity": 0.8979591836734694,
+      "specificity": 0.4791666666666667,
+      "roc_auc": 0.8129251700680272,
+      "roc_auc_95ci_participant_bootstrap": [
+        0.6799846964533637,
+        0.928441391155002
+      ]
+    },
+    "roc_auc_across_repeats": {
+      "mean": 0.7771541950113379,
+      "sd": 0.04705869350509478,
+      "repeats": 5
+    },
+    "participant_level": {
+      "n": 32,
+      "balanced_accuracy": 0.6458333333333333,
+      "f1": 0.8627450980392157,
+      "sensitivity": 0.9166666666666666,
+      "specificity": 0.375,
+      "roc_auc": 0.828125,
+      "roc_auc_95ci_participant_bootstrap": [
+        0.6468005952380953,
+        0.9714610389610389
+      ]
+    }
+  },
+  "quality_flags": [
+    "SMALL_SAMPLE: only 32 participants",
+    "TINY_TEST_SET: independent test has only 8 participants; its metrics are unstable"
+  ],
+  "decision_threshold": 0.7654,
+  "independent_test": {
+    "n": 8,
+    "threshold": 0.7654,
+    "confusion_matrix": {
+      "tn": 2,
+      "fp": 0,
+      "fn": 3,
+      "tp": 3
+    },
+    "sensitivity_recall": 0.5,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "f1": 0.6666666666666666,
+    "roc_auc": 1.0,
+    "indeterminate_fraction": 0.125,
+    "model": "random_forest"
+  },
+  "usable_for_research_scores": true
+}

@@ -1,0 +1,102 @@
+{
+  "dataset": "etpdvis",
+  "model": "logistic_regression",
+  "features": [
+    "Heatmaps_TMT_A_colored_fraction",
+    "Heatmaps_TMT_A_mean_saturation",
+    "Heatmaps_TMT_A_gray_entropy",
+    "Heatmaps_TMT_A_sat_hist_entropy",
+    "Heatmaps_TMT_A_spread_x",
+    "Heatmaps_TMT_A_spread_y",
+    "Heatmaps_TMT_A_centroid_x",
+    "Heatmaps_TMT_A_centroid_y",
+    "Heatmaps_TMT_B_colored_fraction",
+    "Heatmaps_TMT_B_mean_saturation",
+    "Heatmaps_TMT_B_gray_entropy",
+    "Heatmaps_TMT_B_sat_hist_entropy",
+    "Heatmaps_TMT_B_spread_x",
+    "Heatmaps_TMT_B_spread_y",
+    "Heatmaps_TMT_B_centroid_x",
+    "Heatmaps_TMT_B_centroid_y",
+    "Heatmaps_TMT_C_colored_fraction",
+    "Heatmaps_TMT_C_mean_saturation",
+    "Heatmaps_TMT_C_gray_entropy",
+    "Heatmaps_TMT_C_sat_hist_entropy",
+    "Heatmaps_TMT_C_spread_x",
+    "Heatmaps_TMT_C_spread_y",
+    "Heatmaps_TMT_C_centroid_x",
+    "Heatmaps_TMT_C_centroid_y",
+    "Scanpaths_TMT_A_colored_fraction",
+    "Scanpaths_TMT_A_mean_saturation",
+    "Scanpaths_TMT_A_gray_entropy",
+    "Scanpaths_TMT_A_sat_hist_entropy",
+    "Scanpaths_TMT_A_spread_x",
+    "Scanpaths_TMT_A_spread_y",
+    "Scanpaths_TMT_A_centroid_x",
+    "Scanpaths_TMT_A_centroid_y",
+    "Scanpaths_TMT_B_colored_fraction",
+    "Scanpaths_TMT_B_mean_saturation",
+    "Scanpaths_TMT_B_gray_entropy",
+    "Scanpaths_TMT_B_sat_hist_entropy",
+    "Scanpaths_TMT_B_spread_x",
+    "Scanpaths_TMT_B_spread_y",
+    "Scanpaths_TMT_B_centroid_x",
+    "Scanpaths_TMT_B_centroid_y",
+    "Scanpaths_TMT_C_colored_fraction",
+    "Scanpaths_TMT_C_mean_saturation",
+    "Scanpaths_TMT_C_gray_entropy",
+    "Scanpaths_TMT_C_sat_hist_entropy",
+    "Scanpaths_TMT_C_spread_x",
+    "Scanpaths_TMT_C_spread_y",
+    "Scanpaths_TMT_C_centroid_x",
+    "Scanpaths_TMT_C_centroid_y"
+  ],
+  "task": "classification",
+  "label": "PD (1) vs healthy control (0)",
+  "trained_utc": "2026-10-12T07:07:55.232994+00:00",
+  "n_participants": 40,
+  "disclaimer": "Research benchmark on a small public dataset with participant-grouped cross-validation. Not clinically validated; not for diagnosis or screening decisions.",
+  "cv_summary": {
+    "recording_level": {
+      "n": 40,
+      "balanced_accuracy": 1.0,
+      "f1": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "roc_auc": 1.0,
+      "roc_auc_95ci_participant_bootstrap": [
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    "roc_auc_across_repeats": {
+      "mean": 1.0,
+      "sd": 0.0,
+      "repeats": 5
+    }
+  },
+  "quality_flags": [
+    "SUSPICIOUSLY_HIGH: near-perfect separation on a tiny sample usually means a confound or label leakage (recording setup, rendering, task duration); do not rely on this model",
+    "SMALL_SAMPLE: only 40 participants",
+    "TINY_TEST_SET: independent test has only 10 participants; its metrics are unstable"
+  ],
+  "decision_threshold": 0.7042,
+  "independent_test": {
+    "n": 10,
+    "threshold": 0.7042,
+    "confusion_matrix": {
+      "tn": 3,
+      "fp": 0,
+      "fn": 0,
+      "tp": 7
+    },
+    "sensitivity_recall": 1.0,
+    "specificity": 1.0,
+    "precision_ppv": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "indeterminate_fraction": 0.0,
+    "model": "logistic_regression"
+  },
+  "usable_for_research_scores": false
+}

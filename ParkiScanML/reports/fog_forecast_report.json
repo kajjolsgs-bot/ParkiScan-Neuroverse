@@ -1,0 +1,388 @@
+{
+ "dataset": "Daphnet Freezing of Gait (10 participants with PD, 64 Hz, 3 accelerometers)",
+ "citation": "B\u00e4chlin M, Plotnik M, Roggen D, et al. Wearable Assistant for Parkinson's Disease Patients With the Freezing of Gait Symptom. IEEE Trans Inf Technol Biomed. 2010;14(2):436-446. Dataset: UCI Machine Learning Repository, Daphnet Freezing of Gait (CC BY 4.0).",
+ "task": "forecast FoG onset within H seconds (windows containing FoG excluded)",
+ "window": "4 s, 0.5 s hop, causal features",
+ "validation": "leave-one-subject-out (10 folds)",
+ "n_windows": 35405,
+ "subjects": [
+  "S01",
+  "S02",
+  "S03",
+  "S04",
+  "S05",
+  "S06",
+  "S07",
+  "S08",
+  "S09",
+  "S10"
+ ],
+ "results": {
+  "H2": {
+   "ankle_imu": {
+    "auc": 0.7583807848360226,
+    "auc_ci95_subject_bootstrap": [
+     0.7114886250741086,
+     0.8318246513260089
+    ],
+    "pr_auc": 0.09190134925058484,
+    "prevalence": 0.02380479406701099,
+    "per_subject_auc": {
+     "S01": 0.8167417815482503,
+     "S02": 0.7249226405363589,
+     "S03": 0.8933069504982281,
+     "S05": 0.7949680802553579,
+     "S06": 0.736802824691807,
+     "S07": 0.7621109793610695,
+     "S08": 0.6993191302437953,
+     "S09": 0.7810703340678267
+    },
+    "mean_per_subject_auc": 0.7761553401503367,
+    "n_features": 66
+   },
+   "ankle_imu+ehr": {
+    "auc": 0.7433207946427581,
+    "auc_ci95_subject_bootstrap": [
+     0.6237876936603391,
+     0.854955111706219
+    ],
+    "pr_auc": 0.09339589177619637,
+    "prevalence": 0.02380479406701099,
+    "per_subject_auc": {
+     "S01": 0.7531518793448805,
+     "S02": 0.7382800412583806,
+     "S03": 0.7479225060812229,
+     "S05": 0.8138303693570451,
+     "S06": 0.7643109888694413,
+     "S07": 0.6937284116100427,
+     "S08": 0.6655684896405301,
+     "S09": 0.813330149322855
+    },
+    "mean_per_subject_auc": 0.7487653544355497,
+    "n_features": 71
+   }
+  },
+  "H3": {
+   "ankle_imu": {
+    "auc": 0.7625908108006356,
+    "auc_ci95_subject_bootstrap": [
+     0.7206391216546276,
+     0.8261243003708383
+    ],
+    "pr_auc": 0.12697350298464677,
+    "prevalence": 0.03449874188849159,
+    "per_subject_auc": {
+     "S01": 0.800533087498497,
+     "S02": 0.7209454165578479,
+     "S03": 0.8803960046744428,
+     "S05": 0.7847051031130633,
+     "S06": 0.7341262389149713,
+     "S07": 0.741781684981685,
+     "S08": 0.6685792071650298,
+     "S09": 0.7700029073451466
+    },
+    "mean_per_subject_auc": 0.7626337062813355,
+    "n_features": 66
+   },
+   "ankle_imu+ehr": {
+    "auc": 0.7547929686846961,
+    "auc_ci95_subject_bootstrap": [
+     0.6521320063252547,
+     0.84592049779948
+    ],
+    "pr_auc": 0.11890372910454283,
+    "prevalence": 0.03449874188849159,
+    "per_subject_auc": {
+     "S01": 0.7762209908212754,
+     "S02": 0.7363354848337873,
+     "S03": 0.7020130972592772,
+     "S05": 0.8024027344093679,
+     "S06": 0.7665779864371414,
+     "S07": 0.7294212454212455,
+     "S08": 0.6539107424558546,
+     "S09": 0.7853161675724165
+    },
+    "mean_per_subject_auc": 0.7440248061512957,
+    "n_features": 71
+   },
+   "all_imu": {
+    "auc": 0.7884189136837161,
+    "auc_ci95_subject_bootstrap": [
+     0.7458107005435247,
+     0.8463693742449491
+    ],
+    "pr_auc": 0.12729430839267414,
+    "prevalence": 0.03449874188849159,
+    "per_subject_auc": {
+     "S01": 0.8124298569080924,
+     "S02": 0.7725301272245644,
+     "S03": 0.9363018984411174,
+     "S05": 0.8241043697096765,
+     "S06": 0.7316118935837245,
+     "S07": 0.7856673992673994,
+     "S08": 0.6737570607093786,
+     "S09": 0.789995253821171
+    },
+    "mean_per_subject_auc": 0.7907997324581405,
+    "n_features": 198
+   },
+   "all_imu+ehr": {
+    "auc": 0.756962989592456,
+    "auc_ci95_subject_bootstrap": [
+     0.6804685765779775,
+     0.8368619277071234
+    ],
+    "pr_auc": 0.11558676434003942,
+    "prevalence": 0.03449874188849159,
+    "per_subject_auc": {
+     "S01": 0.8081060363140807,
+     "S02": 0.7249468343095923,
+     "S03": 0.8228430313319957,
+     "S05": 0.8121587590907657,
+     "S06": 0.714887845592071,
+     "S07": 0.686778021978022,
+     "S08": 0.7103709734873545,
+     "S09": 0.8156171647669528
+    },
+    "mean_per_subject_auc": 0.7619635833588543,
+    "n_features": 203
+   }
+  },
+  "H5": {
+   "ankle_imu": {
+    "auc": 0.7327595356461306,
+    "auc_ci95_subject_bootstrap": [
+     0.696119194855233,
+     0.7946200594763534
+    ],
+    "pr_auc": 0.1452452488128384,
+    "prevalence": 0.053800821083300226,
+    "per_subject_auc": {
+     "S01": 0.7757955189589224,
+     "S02": 0.7035030359645027,
+     "S03": 0.8497592494613041,
+     "S05": 0.7647028649412124,
+     "S06": 0.7094543675714267,
+     "S07": 0.7217137476459511,
+     "S08": 0.6939984897731377,
+     "S09": 0.762223465105021
+    },
+    "mean_per_subject_auc": 0.7476438424276848,
+    "n_features": 66
+   },
+   "ankle_imu+ehr": {
+    "auc": 0.6980970642779664,
+    "auc_ci95_subject_bootstrap": [
+     0.5941595834110522,
+     0.8046197558296384
+    ],
+    "pr_auc": 0.14145872547634564,
+    "prevalence": 0.053800821083300226,
+    "per_subject_auc": {
+     "S01": 0.781351171545659,
+     "S02": 0.70929472209248,
+     "S03": 0.762773523056778,
+     "S05": 0.7634908478393648,
+     "S06": 0.7099865145365364,
+     "S07": 0.6534595103578154,
+     "S08": 0.6758347286516301,
+     "S09": 0.7620370326852066
+    },
+    "mean_per_subject_auc": 0.7272785063456837,
+    "n_features": 71
+   }
+  }
+ },
+ "baselines": {
+  "H2": {
+   "freeze_index_auc": 0.627683815560728,
+   "freeze_index_trend_auc": 0.6048144515150321,
+   "constant_auc": 0.5,
+   "positives": 719,
+   "negatives": 29485
+  },
+  "H3": {
+   "freeze_index_auc": 0.6017104003435175,
+   "freeze_index_trend_auc": 0.5827840598175444,
+   "constant_auc": 0.5,
+   "positives": 1042,
+   "negatives": 29162
+  },
+  "H5": {
+   "freeze_index_auc": 0.5639316873336259,
+   "freeze_index_trend_auc": 0.533519792639566,
+   "constant_auc": 0.5,
+   "positives": 1625,
+   "negatives": 28579
+  }
+ },
+ "deployed": {
+  "configuration": "ankle_imu+ehr",
+  "horizon_s": 3.0,
+  "alarm_rule": "risk \u2265 fold threshold (training-subject specificity 0.85) for 2 consecutive windows",
+  "window_level": {
+   "tp": 543,
+   "fp": 4573,
+   "tn": 24589,
+   "fn": 499,
+   "sensitivity": 0.5211132437619962,
+   "specificity": 0.8431863383855702
+  },
+  "event_level": {
+   "episodes": 237,
+   "warned_before_onset": 148,
+   "early_warning_rate": 0.6244725738396625,
+   "median_lead_s": 4.640625,
+   "iqr_lead_s": [
+    3.44921875,
+    4.8125
+   ],
+   "false_alarms_per_hour": 139.3417467823255,
+   "non_fog_hours": 4.435138888888889
+  },
+  "per_subject": {
+   "S01": {
+    "episodes": 23,
+    "warned_before_onset": 18,
+    "false_alarms": 124,
+    "non_fog_hours": 0.4961111111111111,
+    "median_lead_s": 4.1640625,
+    "threshold": 0.18732331833008323
+   },
+   "S02": {
+    "episodes": 24,
+    "warned_before_onset": 20,
+    "false_alarms": 59,
+    "non_fog_hours": 0.34097222222222223,
+    "median_lead_s": 4.59375,
+    "threshold": 0.14784701128803796
+   },
+   "S03": {
+    "episodes": 49,
+    "warned_before_onset": 0,
+    "false_alarms": 0,
+    "non_fog_hours": 0.4741666666666667,
+    "median_lead_s": null,
+    "threshold": 0.22377226972717854
+   },
+   "S04": {
+    "episodes": 0,
+    "warned_before_onset": 0,
+    "false_alarms": 95,
+    "non_fog_hours": 0.5730555555555555,
+    "median_lead_s": null,
+    "threshold": 0.12870359068867554
+   },
+   "S05": {
+    "episodes": 66,
+    "warned_before_onset": 64,
+    "false_alarms": 77,
+    "non_fog_hours": 0.4425,
+    "median_lead_s": 4.703125,
+    "threshold": 0.10370128017164043
+   },
+   "S06": {
+    "episodes": 10,
+    "warned_before_onset": 7,
+    "false_alarms": 86,
+    "non_fog_hours": 0.51125,
+    "median_lead_s": 3.546875,
+    "threshold": 0.18682466297341085
+   },
+   "S07": {
+    "episodes": 24,
+    "warned_before_onset": 2,
+    "false_alarms": 0,
+    "non_fog_hours": 0.4225,
+    "median_lead_s": 1.53125,
+    "threshold": 0.14034025318372403
+   },
+   "S08": {
+    "episodes": 14,
+    "warned_before_onset": 12,
+    "false_alarms": 47,
+    "non_fog_hours": 0.15375,
+    "median_lead_s": 4.671875,
+    "threshold": 0.06605839943908512
+   },
+   "S09": {
+    "episodes": 27,
+    "warned_before_onset": 25,
+    "false_alarms": 54,
+    "non_fog_hours": 0.4033333333333333,
+    "median_lead_s": 4.671875,
+    "threshold": 0.07570522343215699
+   },
+   "S10": {
+    "episodes": 0,
+    "warned_before_onset": 0,
+    "false_alarms": 76,
+    "non_fog_hours": 0.6175,
+    "median_lead_s": null,
+    "threshold": 0.12702115746025086
+   }
+  },
+  "cue_rule": {
+   "episodes": 237,
+   "warned_before_onset": 148,
+   "early_warning_rate": 0.6244725738396625,
+   "false_cues_per_hour": 96.27657908746437,
+   "median_lead_s": 4.640625,
+   "non_fog_hours": 4.435138888888889,
+   "rule": "per-fold threshold (training-subject specificity 0.85), 2 consecutive windows, 10 s cue refractory period"
+  },
+  "operating_curve": [
+   {
+    "window_specificity": 0.85,
+    "threshold": 0.14350715068177766,
+    "episodes": 237,
+    "warned_before_onset": 144,
+    "early_warning_rate": 0.6075949367088608,
+    "false_cues_per_hour": 94.24733034791595,
+    "median_lead_s": 4.59375,
+    "non_fog_hours": 4.435138888888889
+   },
+   {
+    "window_specificity": 0.9,
+    "threshold": 0.22807537641633657,
+    "episodes": 237,
+    "warned_before_onset": 128,
+    "early_warning_rate": 0.540084388185654,
+    "false_cues_per_hour": 73.05295462374346,
+    "median_lead_s": 4.2890625,
+    "non_fog_hours": 4.435138888888889
+   },
+   {
+    "window_specificity": 0.95,
+    "threshold": 0.4021173618212909,
+    "episodes": 237,
+    "warned_before_onset": 103,
+    "early_warning_rate": 0.4345991561181435,
+    "false_cues_per_hour": 40.134030626624494,
+    "median_lead_s": 3.75,
+    "non_fog_hours": 4.435138888888889
+   },
+   {
+    "window_specificity": 0.97,
+    "threshold": 0.5398975415218518,
+    "episodes": 237,
+    "warned_before_onset": 83,
+    "early_warning_rate": 0.350210970464135,
+    "false_cues_per_hour": 26.380233614129583,
+    "median_lead_s": 3.234375,
+    "non_fog_hours": 4.435138888888889
+   },
+   {
+    "window_specificity": 0.99,
+    "threshold": 0.7421740361927112,
+    "episodes": 237,
+    "warned_before_onset": 44,
+    "early_warning_rate": 0.18565400843881857,
+    "false_cues_per_hour": 9.469827451226005,
+    "median_lead_s": 2.71875,
+    "non_fog_hours": 4.435138888888889
+   }
+  ]
+ },
+ "runtime_s": 3355.5602526664734
+}

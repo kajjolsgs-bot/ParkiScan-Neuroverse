@@ -1,0 +1,92 @@
+{
+  "dataset": "speech_multi",
+  "model": "neural_net_mlp",
+  "features": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26"
+  ],
+  "task": "classification",
+  "label": "PD (1) vs healthy (0)",
+  "trained_utc": "2026-10-12T07:07:55.232994+00:00",
+  "n_participants": 40,
+  "disclaimer": "Research benchmark on a small public dataset with participant-grouped cross-validation. Not clinically validated; not for diagnosis or screening decisions.",
+  "cv_summary": {
+    "recording_level": {
+      "n": 1040,
+      "balanced_accuracy": 0.575,
+      "f1": 0.5758157389635317,
+      "sensitivity": 0.5769230769230769,
+      "specificity": 0.573076923076923,
+      "roc_auc": 0.6002847633136095,
+      "roc_auc_95ci_participant_bootstrap": [
+        0.5122203241574479,
+        0.6842999761156312
+      ]
+    },
+    "roc_auc_across_repeats": {
+      "mean": 0.5980673076923076,
+      "sd": 0.019266171981506274,
+      "repeats": 5
+    },
+    "participant_level": {
+      "n": 40,
+      "balanced_accuracy": 0.75,
+      "f1": 0.7619047619047619,
+      "sensitivity": 0.8,
+      "specificity": 0.7,
+      "roc_auc": 0.7024999999999999,
+      "roc_auc_95ci_participant_bootstrap": [
+        0.528515625,
+        0.8547081766917293
+      ]
+    }
+  },
+  "quality_flags": [
+    "SMALL_SAMPLE: only 40 participants",
+    "INDEPENDENT_TEST_FAILED: held-out ROC AUC 0.44 \u2014 cross-validation result did not generalise",
+    "TINY_TEST_SET: independent test has only 10 participants; its metrics are unstable"
+  ],
+  "decision_threshold": 0.362,
+  "independent_test": {
+    "n": 10,
+    "threshold": 0.362,
+    "confusion_matrix": {
+      "tn": 1,
+      "fp": 4,
+      "fn": 0,
+      "tp": 5
+    },
+    "sensitivity_recall": 1.0,
+    "specificity": 0.2,
+    "precision_ppv": 0.5555555555555556,
+    "f1": 0.7142857142857143,
+    "roc_auc": 0.44,
+    "indeterminate_fraction": 0.19999999999999996,
+    "model": "neural_net_mlp"
+  },
+  "usable_for_research_scores": false
+}

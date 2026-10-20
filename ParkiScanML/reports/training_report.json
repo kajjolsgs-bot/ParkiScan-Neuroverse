@@ -1,0 +1,2122 @@
+{
+  "generated_utc": "2026-10-12T07:07:55.232994+00:00",
+  "data_dir": "/home/claude/ds",
+  "disclaimer": "Research benchmark on a small public dataset with participant-grouped cross-validation. Not clinically validated; not for diagnosis or screening decisions.",
+  "datasets": {
+    "oxford_voice": {
+      "status": "evaluated",
+      "task": "classification",
+      "label": "PD (1) vs healthy (0)",
+      "unit": "sustained vowel recording",
+      "source": "parkinsons.data",
+      "n_rows": 195,
+      "n_participants": 32,
+      "n_positive_participants": 24,
+      "features": [
+        "MDVP:Fo(Hz)",
+        "MDVP:Fhi(Hz)",
+        "MDVP:Flo(Hz)",
+        "MDVP:Jitter(%)",
+        "MDVP:Jitter(Abs)",
+        "MDVP:RAP",
+        "MDVP:PPQ",
+        "Jitter:DDP",
+        "MDVP:Shimmer",
+        "MDVP:Shimmer(dB)",
+        "Shimmer:APQ3",
+        "Shimmer:APQ5",
+        "MDVP:APQ",
+        "Shimmer:DDA",
+        "NHR",
+        "HNR",
+        "RPDE",
+        "DFA",
+        "spread1",
+        "spread2",
+        "D2",
+        "PPE"
+      ],
+      "cv": "StratifiedGroupKFold x5 repeats",
+      "results": {
+        "dummy_most_frequent": {
+          "recording_level": {
+            "n": 195,
+            "balanced_accuracy": 0.5,
+            "f1": 0.8596491228070176,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "roc_auc": 0.40688775510204084,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.19308358838613618,
+              0.6212286836893391
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.4063775510204081,
+            "sd": 0.0006248698323426685,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 32,
+            "balanced_accuracy": 0.5,
+            "f1": 0.8571428571428571,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "roc_auc": 0.40625,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.1890827922077922,
+              0.6224609375
+            ]
+          }
+        },
+        "logistic_regression": {
+          "recording_level": {
+            "n": 195,
+            "balanced_accuracy": 0.6823979591836735,
+            "f1": 0.8344827586206897,
+            "sensitivity": 0.8231292517006803,
+            "specificity": 0.5416666666666666,
+            "roc_auc": 0.7239229024943311,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5312811302681992,
+              0.8898949579831932
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.7401927437641723,
+            "sd": 0.026341854491663343,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 32,
+            "balanced_accuracy": 0.6875,
+            "f1": 0.8571428571428571,
+            "sensitivity": 0.875,
+            "specificity": 0.5,
+            "roc_auc": 0.7239583333333334,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.46862545289855073,
+              0.9423214285714285
+            ]
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 195,
+            "balanced_accuracy": 0.5642006802721089,
+            "f1": 0.8092105263157895,
+            "sensitivity": 0.8367346938775511,
+            "specificity": 0.2916666666666667,
+            "roc_auc": 0.7079081632653061,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5357175195835909,
+              0.8658322350001681
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.7438492063492064,
+            "sd": 0.022008062934940998,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 32,
+            "balanced_accuracy": 0.5416666666666667,
+            "f1": 0.8,
+            "sensitivity": 0.8333333333333334,
+            "specificity": 0.25,
+            "roc_auc": 0.6770833333333333,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.4603037766830871,
+              0.8666666666666667
+            ]
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 195,
+            "balanced_accuracy": 0.6090561224489796,
+            "f1": 0.8327868852459016,
+            "sensitivity": 0.8639455782312925,
+            "specificity": 0.3541666666666667,
+            "roc_auc": 0.6288265306122449,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.41997040510174616,
+              0.8280647675736961
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.6782029478458049,
+            "sd": 0.036560626616006224,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 32,
+            "balanced_accuracy": 0.6666666666666667,
+            "f1": 0.8846153846153846,
+            "sensitivity": 0.9583333333333334,
+            "specificity": 0.375,
+            "roc_auc": 0.625,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.35930194805194804,
+              0.890635016025641
+            ]
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 195,
+            "balanced_accuracy": 0.688562925170068,
+            "f1": 0.868421052631579,
+            "sensitivity": 0.8979591836734694,
+            "specificity": 0.4791666666666667,
+            "roc_auc": 0.8129251700680272,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.6799846964533637,
+              0.928441391155002
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.7771541950113379,
+            "sd": 0.04705869350509478,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 32,
+            "balanced_accuracy": 0.6458333333333333,
+            "f1": 0.8627450980392157,
+            "sensitivity": 0.9166666666666666,
+            "specificity": 0.375,
+            "roc_auc": 0.828125,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.6468005952380953,
+              0.9714610389610389
+            ]
+          }
+        }
+      },
+      "best_model": "neural_net_mlp",
+      "seconds": 36.0,
+      "quality_flags": [
+        "SMALL_SAMPLE: only 32 participants",
+        "TINY_TEST_SET: independent test has only 8 participants; its metrics are unstable"
+      ],
+      "usable_for_research_scores": true,
+      "independent_test": {
+        "protocol": "independent held-out participants (1/4, stratified & grouped, seed 42); model + Youden threshold chosen on training participants only",
+        "train_participants": 24,
+        "test_participants": 8,
+        "model_selected": "random_forest",
+        "inner_cv_auc_by_model": {
+          "logistic_regression": 0.712962962962963,
+          "random_forest": 0.7870370370370371,
+          "hist_gradient_boosting": 0.712962962962963,
+          "neural_net_mlp": 0.6296296296296297
+        },
+        "youden_j_train_oof": 0.6111111111111112,
+        "test": {
+          "n": 8,
+          "threshold": 0.7654,
+          "confusion_matrix": {
+            "tn": 2,
+            "fp": 0,
+            "fn": 3,
+            "tp": 3
+          },
+          "sensitivity_recall": 0.5,
+          "sensitivity_95ci": [
+            0.18761280689940868,
+            0.8123871931005913
+          ],
+          "specificity": 1.0,
+          "specificity_95ci": [
+            0.34237195288961925,
+            1.0
+          ],
+          "precision_ppv": 1.0,
+          "f1": 0.6666666666666666,
+          "balanced_accuracy": 0.75,
+          "roc_auc": 1.0,
+          "brier": 0.0947703512086108,
+          "abstention_margin": 0.1,
+          "indeterminate_fraction": 0.125,
+          "decided_only": {
+            "n": 7,
+            "confusion_matrix": {
+              "tn": 2,
+              "fp": 0,
+              "fn": 2,
+              "tp": 3
+            },
+            "sensitivity": 0.6,
+            "specificity": 1.0
+          }
+        }
+      }
+    },
+    "telemonitoring": {
+      "status": "evaluated",
+      "task": "regression",
+      "label": "motor UPDRS (all participants have early PD)",
+      "unit": "home voice recording",
+      "source": "parkinsons_updrs.data",
+      "note": "age/sex/test_time removed so the model cannot shortcut via demographics or time",
+      "n_rows": 5875,
+      "n_participants": 42,
+      "n_positive_participants": null,
+      "features": [
+        "Jitter(%)",
+        "Jitter(Abs)",
+        "Jitter:RAP",
+        "Jitter:PPQ5",
+        "Jitter:DDP",
+        "Shimmer",
+        "Shimmer(dB)",
+        "Shimmer:APQ3",
+        "Shimmer:APQ5",
+        "Shimmer:APQ11",
+        "Shimmer:DDA",
+        "NHR",
+        "HNR",
+        "RPDE",
+        "DFA",
+        "PPE"
+      ],
+      "cv": "GroupKFold(5)",
+      "results": {
+        "dummy_mean": {
+          "recording_level": {
+            "n": 5875,
+            "mae": 7.1465533405430195,
+            "r2": -0.04190759505261221
+          }
+        },
+        "ridge": {
+          "recording_level": {
+            "n": 5875,
+            "mae": 7.36128619497827,
+            "r2": -0.13302199085044109
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 5875,
+            "mae": 7.592351665825454,
+            "r2": -0.25062947225076115
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 5875,
+            "mae": 7.607300877630941,
+            "r2": -0.23250073761375334
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 5875,
+            "mae": 8.03352210826282,
+            "r2": -0.5866606154431269
+          }
+        }
+      },
+      "best_model": "ridge",
+      "seconds": 40.9,
+      "quality_flags": [
+        "NO_BETTER_THAN_BASELINE: best model does not beat predicting the training mean"
+      ],
+      "usable_for_research_scores": false
+    },
+    "speech_multi": {
+      "status": "evaluated",
+      "task": "classification",
+      "label": "PD (1) vs healthy (0)",
+      "unit": "one of 26 speech recordings per participant",
+      "source": "train_data.txt",
+      "note": "UPDRS column removed (it is only defined for PD and would leak the label)",
+      "n_rows": 1040,
+      "n_participants": 40,
+      "n_positive_participants": 20,
+      "features": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11",
+        "f12",
+        "f13",
+        "f14",
+        "f15",
+        "f16",
+        "f17",
+        "f18",
+        "f19",
+        "f20",
+        "f21",
+        "f22",
+        "f23",
+        "f24",
+        "f25",
+        "f26"
+      ],
+      "cv": "StratifiedGroupKFold x5 repeats",
+      "results": {
+        "dummy_most_frequent": {
+          "recording_level": {
+            "n": 1040,
+            "balanced_accuracy": 0.5,
+            "f1": 0.6666666666666666,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "roc_auc": 0.5,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5,
+              0.5
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.5,
+            "sd": 0.0,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 40,
+            "balanced_accuracy": 0.5,
+            "f1": 0.6666666666666666,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "roc_auc": 0.5,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        "logistic_regression": {
+          "recording_level": {
+            "n": 1040,
+            "balanced_accuracy": 0.5788461538461538,
+            "f1": 0.5828571428571429,
+            "sensitivity": 0.5884615384615385,
+            "specificity": 0.5692307692307692,
+            "roc_auc": 0.6352440828402366,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5220390546866789,
+              0.7348947710275834
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.5648276627218934,
+            "sd": 0.046651228253625436,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 40,
+            "balanced_accuracy": 0.525,
+            "f1": 0.5365853658536586,
+            "sensitivity": 0.55,
+            "specificity": 0.5,
+            "roc_auc": 0.6699999999999999,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.4861934837092732,
+              0.8207407723855094
+            ]
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 1040,
+            "balanced_accuracy": 0.5615384615384615,
+            "f1": 0.5520628683693517,
+            "sensitivity": 0.5403846153846154,
+            "specificity": 0.5826923076923077,
+            "roc_auc": 0.5987740384615384,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.49904935309081944,
+              0.6973201014572472
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.546876479289941,
+            "sd": 0.03233503643254439,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 40,
+            "balanced_accuracy": 0.625,
+            "f1": 0.6153846153846154,
+            "sensitivity": 0.6,
+            "specificity": 0.65,
+            "roc_auc": 0.6300000000000001,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.4477946428571428,
+              0.7995870357712462
+            ]
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 1040,
+            "balanced_accuracy": 0.5625,
+            "f1": 0.5560975609756098,
+            "sensitivity": 0.5480769230769231,
+            "specificity": 0.5769230769230769,
+            "roc_auc": 0.5954252958579882,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5110261677425139,
+              0.6781914723171116
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.552337278106509,
+            "sd": 0.02653046730372091,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 40,
+            "balanced_accuracy": 0.6000000000000001,
+            "f1": 0.5789473684210527,
+            "sensitivity": 0.55,
+            "specificity": 0.65,
+            "roc_auc": 0.6475000000000001,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.4697827380952381,
+              0.807309375
+            ]
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 1040,
+            "balanced_accuracy": 0.575,
+            "f1": 0.5758157389635317,
+            "sensitivity": 0.5769230769230769,
+            "specificity": 0.573076923076923,
+            "roc_auc": 0.6002847633136095,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5122203241574479,
+              0.6842999761156312
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.5980673076923076,
+            "sd": 0.019266171981506274,
+            "repeats": 5
+          },
+          "participant_level": {
+            "n": 40,
+            "balanced_accuracy": 0.75,
+            "f1": 0.7619047619047619,
+            "sensitivity": 0.8,
+            "specificity": 0.7,
+            "roc_auc": 0.7024999999999999,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.528515625,
+              0.8547081766917293
+            ]
+          }
+        }
+      },
+      "best_model": "neural_net_mlp",
+      "seconds": 124.6,
+      "quality_flags": [
+        "SMALL_SAMPLE: only 40 participants",
+        "INDEPENDENT_TEST_FAILED: held-out ROC AUC 0.44 \u2014 cross-validation result did not generalise",
+        "TINY_TEST_SET: independent test has only 10 participants; its metrics are unstable"
+      ],
+      "usable_for_research_scores": false,
+      "independent_test": {
+        "protocol": "independent held-out participants (1/4, stratified & grouped, seed 42); model + Youden threshold chosen on training participants only",
+        "train_participants": 30,
+        "test_participants": 10,
+        "model_selected": "neural_net_mlp",
+        "inner_cv_auc_by_model": {
+          "logistic_regression": 0.6844444444444444,
+          "random_forest": 0.6844444444444444,
+          "hist_gradient_boosting": 0.6977777777777777,
+          "neural_net_mlp": 0.7511111111111111
+        },
+        "youden_j_train_oof": 0.4666666666666668,
+        "test": {
+          "n": 10,
+          "threshold": 0.362,
+          "confusion_matrix": {
+            "tn": 1,
+            "fp": 4,
+            "fn": 0,
+            "tp": 5
+          },
+          "sensitivity_recall": 1.0,
+          "sensitivity_95ci": [
+            0.5655085052479191,
+            1.0
+          ],
+          "specificity": 0.2,
+          "specificity_95ci": [
+            0.03622316096978745,
+            0.6244717358814613
+          ],
+          "precision_ppv": 0.5555555555555556,
+          "f1": 0.7142857142857143,
+          "balanced_accuracy": 0.6,
+          "roc_auc": 0.44,
+          "brier": 0.31986671641625125,
+          "abstention_margin": 0.1,
+          "indeterminate_fraction": 0.19999999999999996,
+          "decided_only": {
+            "n": 8,
+            "confusion_matrix": {
+              "tn": 0,
+              "fp": 3,
+              "fn": 0,
+              "tp": 5
+            },
+            "sensitivity": 1.0,
+            "specificity": 0.0
+          }
+        }
+      }
+    },
+    "spiral": {
+      "status": "evaluated",
+      "task": "classification",
+      "label": "PD (1) vs control (0)",
+      "unit": "spiral test 0, one file per participant",
+      "note": "features computed by parkiscan.features.spiral (same code used for in-game traces)",
+      "n_rows": 40,
+      "n_participants": 40,
+      "n_positive_participants": 25,
+      "features": [
+        "duration_s",
+        "path_length_norm",
+        "loops",
+        "speed_mean",
+        "speed_cv",
+        "radial_rmse_norm",
+        "pen_lifts",
+        "pressure_mean",
+        "pressure_cv",
+        "log_dimensionless_jerk",
+        "tremor_band_ratio_4_8hz",
+        "tremor_peak_hz",
+        "velocity_mean_norm"
+      ],
+      "cv": "StratifiedGroupKFold x5 repeats",
+      "results": {
+        "dummy_most_frequent": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.5,
+            "f1": 0.7692307692307693,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "roc_auc": 0.5,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5,
+              0.5
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.5,
+            "sd": 0.0,
+            "repeats": 5
+          }
+        },
+        "logistic_regression": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.6666666666666666,
+            "f1": 0.6818181818181818,
+            "sensitivity": 0.6,
+            "specificity": 0.7333333333333333,
+            "roc_auc": 0.744,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5733162393162393,
+              0.8828425009796238
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.7482666666666666,
+            "sd": 0.01867428416001238,
+            "repeats": 5
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.7466666666666666,
+            "f1": 0.7916666666666666,
+            "sensitivity": 0.76,
+            "specificity": 0.7333333333333333,
+            "roc_auc": 0.8293333333333334,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.6818114177489178,
+              0.9450613839285715
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8431999999999998,
+            "sd": 0.014050069197140773,
+            "repeats": 5
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.7,
+            "f1": 0.7843137254901961,
+            "sensitivity": 0.8,
+            "specificity": 0.6,
+            "roc_auc": 0.7573333333333334,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5856649265057193,
+              0.89772242114237
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.7824,
+            "sd": 0.013763720427268178,
+            "repeats": 5
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.6799999999999999,
+            "f1": 0.76,
+            "sensitivity": 0.76,
+            "specificity": 0.6,
+            "roc_auc": 0.7226666666666668,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.5421455938697318,
+              0.8724609375
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.7797333333333334,
+            "sd": 0.0387392422343144,
+            "repeats": 5
+          }
+        }
+      },
+      "best_model": "random_forest",
+      "seconds": 28.7,
+      "quality_flags": [
+        "SMALL_SAMPLE: only 40 participants",
+        "TINY_TEST_SET: independent test has only 10 participants; its metrics are unstable"
+      ],
+      "usable_for_research_scores": true,
+      "independent_test": {
+        "protocol": "independent held-out participants (1/4, stratified & grouped, seed 42); model + Youden threshold chosen on training participants only",
+        "train_participants": 30,
+        "test_participants": 10,
+        "model_selected": "random_forest",
+        "inner_cv_auc_by_model": {
+          "logistic_regression": 0.6363636363636364,
+          "random_forest": 0.6985645933014354,
+          "hist_gradient_boosting": 0.6459330143540669,
+          "neural_net_mlp": 0.6244019138755981
+        },
+        "youden_j_train_oof": 0.3732057416267942,
+        "test": {
+          "n": 10,
+          "threshold": 0.5289,
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 0,
+            "fn": 1,
+            "tp": 5
+          },
+          "sensitivity_recall": 0.8333333333333334,
+          "sensitivity_95ci": [
+            0.43649056343635395,
+            0.9699474141282697
+          ],
+          "specificity": 1.0,
+          "specificity_95ci": [
+            0.5100999795960008,
+            1.0
+          ],
+          "precision_ppv": 1.0,
+          "f1": 0.9090909090909091,
+          "balanced_accuracy": 0.9166666666666667,
+          "roc_auc": 1.0,
+          "brier": 0.08013932044053224,
+          "abstention_margin": 0.1,
+          "indeterminate_fraction": 0.09999999999999998,
+          "decided_only": {
+            "n": 9,
+            "confusion_matrix": {
+              "tn": 4,
+              "fp": 0,
+              "fn": 0,
+              "tp": 5
+            },
+            "sensitivity": 1.0,
+            "specificity": 1.0
+          }
+        }
+      }
+    },
+    "gaitndd": {
+      "status": "evaluated",
+      "task": "classification",
+      "label": "PD (1) vs control (0)",
+      "unit": "one ~5 min walk per participant (force-sensitive insoles)",
+      "n_rows": 31,
+      "n_participants": 31,
+      "n_positive_participants": 15,
+      "features": [
+        "left_stride_s_mean",
+        "left_stride_s_std",
+        "left_stride_s_cv",
+        "left_stride_s_dfa_alpha",
+        "right_stride_s_mean",
+        "right_stride_s_std",
+        "right_stride_s_cv",
+        "right_stride_s_dfa_alpha",
+        "swing_pct_mean",
+        "swing_pct_std",
+        "swing_pct_cv",
+        "stance_pct_mean",
+        "stance_pct_std",
+        "stance_pct_cv",
+        "double_support_pct_mean",
+        "double_support_pct_std",
+        "double_support_pct_cv",
+        "stride_asymmetry_pct"
+      ],
+      "cv": "StratifiedGroupKFold x5 repeats",
+      "results": {
+        "dummy_most_frequent": {
+          "recording_level": {
+            "n": 31,
+            "balanced_accuracy": 0.475,
+            "f1": 0.2727272727272727,
+            "sensitivity": 0.2,
+            "specificity": 0.75,
+            "roc_auc": 0.475,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.3310910087719298,
+              0.6363920454545454
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.475,
+            "sd": 0.0,
+            "repeats": 5
+          }
+        },
+        "logistic_regression": {
+          "recording_level": {
+            "n": 31,
+            "balanced_accuracy": 0.86875,
+            "f1": 0.8571428571428571,
+            "sensitivity": 0.8,
+            "specificity": 0.9375,
+            "roc_auc": 0.85,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.6708683473389356,
+              0.9999999999999999
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8583333333333334,
+            "sd": 0.012076147288491232,
+            "repeats": 5
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 31,
+            "balanced_accuracy": 0.8375,
+            "f1": 0.8275862068965517,
+            "sensitivity": 0.8,
+            "specificity": 0.875,
+            "roc_auc": 0.9,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.7543288367978771,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8879166666666667,
+            "sd": 0.01346291201783629,
+            "repeats": 5
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 31,
+            "balanced_accuracy": 0.9020833333333333,
+            "f1": 0.896551724137931,
+            "sensitivity": 0.8666666666666667,
+            "specificity": 0.9375,
+            "roc_auc": 0.8916666666666667,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.7291392543859648,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8925000000000001,
+            "sd": 0.015679073101855664,
+            "repeats": 5
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 31,
+            "balanced_accuracy": 0.9020833333333333,
+            "f1": 0.896551724137931,
+            "sensitivity": 0.8666666666666667,
+            "specificity": 0.9375,
+            "roc_auc": 0.8666666666666668,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.7093750000000001,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8425,
+            "sd": 0.017559422921421267,
+            "repeats": 5
+          }
+        }
+      },
+      "best_model": "random_forest",
+      "seconds": 27.7,
+      "quality_flags": [
+        "SMALL_SAMPLE: only 31 participants",
+        "TINY_TEST_SET: independent test has only 8 participants; its metrics are unstable"
+      ],
+      "usable_for_research_scores": true,
+      "independent_test": {
+        "protocol": "independent held-out participants (1/4, stratified & grouped, seed 42); model + Youden threshold chosen on training participants only",
+        "train_participants": 23,
+        "test_participants": 8,
+        "model_selected": "logistic_regression",
+        "inner_cv_auc_by_model": {
+          "logistic_regression": 0.8409090909090909,
+          "random_forest": 0.8257575757575757,
+          "hist_gradient_boosting": 0.7424242424242425,
+          "neural_net_mlp": 0.803030303030303
+        },
+        "youden_j_train_oof": 0.7348484848484849,
+        "test": {
+          "n": 8,
+          "threshold": 0.6524,
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 0,
+            "fn": 0,
+            "tp": 4
+          },
+          "sensitivity_recall": 1.0,
+          "sensitivity_95ci": [
+            0.5100999795960008,
+            1.0
+          ],
+          "specificity": 1.0,
+          "specificity_95ci": [
+            0.5100999795960008,
+            1.0
+          ],
+          "precision_ppv": 1.0,
+          "f1": 1.0,
+          "balanced_accuracy": 1.0,
+          "roc_auc": 1.0,
+          "brier": 0.07701531223358178,
+          "abstention_margin": 0.1,
+          "indeterminate_fraction": 0.0,
+          "decided_only": {
+            "n": 8,
+            "confusion_matrix": {
+              "tn": 4,
+              "fp": 0,
+              "fn": 0,
+              "tp": 4
+            },
+            "sensitivity": 1.0,
+            "specificity": 1.0
+          }
+        }
+      }
+    },
+    "daphnet": {
+      "status": "evaluated",
+      "task": "classification (event detection)",
+      "label": "freezing-of-gait window (1) vs walking/standing (0)",
+      "unit": "4.0s window, 1.0s hop, ankle accelerometer",
+      "note": "detects FoG episodes in people already diagnosed; not a diagnostic model",
+      "n_rows": 17720,
+      "n_participants": 10,
+      "n_positive_participants": 8,
+      "features": [
+        "x_std",
+        "x_p_loco",
+        "x_p_freeze",
+        "x_freeze_index",
+        "y_std",
+        "y_p_loco",
+        "y_p_freeze",
+        "y_freeze_index",
+        "z_std",
+        "z_p_loco",
+        "z_p_freeze",
+        "z_freeze_index",
+        "mag_std",
+        "mag_p_loco",
+        "mag_p_freeze",
+        "mag_freeze_index",
+        "mag_total_power"
+      ],
+      "cv": "leave-one-subject-out",
+      "results": {
+        "dummy_most_frequent": {
+          "recording_level": {
+            "n": 17720,
+            "balanced_accuracy": 0.5,
+            "f1": 0.0,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "roc_auc": 0.23673654555375054,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.14921292266258787,
+              0.3548296605440759
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.23673654555375054,
+            "sd": 0.0,
+            "repeats": 1
+          },
+          "per_subject_auc": {
+            "S01": 0.5,
+            "S02": 0.5,
+            "S03": 0.5,
+            "S05": 0.5,
+            "S06": 0.5,
+            "S07": 0.5,
+            "S08": 0.5,
+            "S09": 0.5
+          }
+        },
+        "logistic_regression": {
+          "recording_level": {
+            "n": 17720,
+            "balanced_accuracy": 0.7778220215166455,
+            "f1": 0.43324584426946633,
+            "sensitivity": 0.7290930506478209,
+            "specificity": 0.82655099238547,
+            "roc_auc": 0.8501720396527801,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.804700514709371,
+              0.9012731069216979
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8501720396527801,
+            "sd": 0.0,
+            "repeats": 1
+          },
+          "per_subject_auc": {
+            "S01": 0.9271330742180272,
+            "S02": 0.9119261432144978,
+            "S03": 0.8949324707167067,
+            "S05": 0.8013058173349741,
+            "S06": 0.8026656402273958,
+            "S07": 0.8746635061510616,
+            "S08": 0.7046553943105666,
+            "S09": 0.8928339219674075
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 17720,
+            "balanced_accuracy": 0.720670076877509,
+            "f1": 0.4695089044792229,
+            "sensitivity": 0.5123674911660777,
+            "specificity": 0.9289726625889402,
+            "roc_auc": 0.8671088332753301,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.8294938635885957,
+              0.9035373648164768
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8671088332753301,
+            "sd": 0.0,
+            "repeats": 1
+          },
+          "per_subject_auc": {
+            "S01": 0.941785427848726,
+            "S02": 0.9057354185037884,
+            "S03": 0.8871277132761233,
+            "S05": 0.858956918774335,
+            "S06": 0.8906165403356794,
+            "S07": 0.9117260641474417,
+            "S08": 0.6472018816846403,
+            "S09": 0.9157178301508949
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 17720,
+            "balanced_accuracy": 0.7966781614620297,
+            "f1": 0.45684919369129895,
+            "sensitivity": 0.7591283863368669,
+            "specificity": 0.8342279365871926,
+            "roc_auc": 0.8841427217493496,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.8460927832235561,
+              0.9187050303254659
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.8841427217493496,
+            "sd": 0.0,
+            "repeats": 1
+          },
+          "per_subject_auc": {
+            "S01": 0.9694953420938984,
+            "S02": 0.8927690895675491,
+            "S03": 0.8851868258661365,
+            "S05": 0.8677348839586553,
+            "S06": 0.8951720695722793,
+            "S07": 0.9368815633527191,
+            "S08": 0.6622597967425553,
+            "S09": 0.9299256708607927
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 17720,
+            "balanced_accuracy": 0.6485057207117598,
+            "f1": 0.3926002055498458,
+            "sensitivity": 0.3374558303886926,
+            "specificity": 0.9595556110348271,
+            "roc_auc": 0.828250767973777,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.7640219888866543,
+              0.8936361375861379
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.828250767973777,
+            "sd": 0.0,
+            "repeats": 1
+          },
+          "per_subject_auc": {
+            "S01": 0.9342834227898082,
+            "S02": 0.7024852880306657,
+            "S03": 0.8724041661086444,
+            "S05": 0.8309619197768944,
+            "S06": 0.9105475094748241,
+            "S07": 0.9054234080280771,
+            "S08": 0.6514800514800515,
+            "S09": 0.9241572303163018
+          }
+        }
+      },
+      "best_model": "hist_gradient_boosting",
+      "seconds": 185.5,
+      "quality_flags": [
+        "SMALL_SAMPLE: only 10 participants"
+      ],
+      "usable_for_research_scores": true,
+      "independent_test": {
+        "protocol": "leave-one-subject-out; threshold tuned per fold on the other subjects (inner grouped CV)",
+        "test": {
+          "n_windows": 17720,
+          "confusion_matrix": {
+            "tn": 12391,
+            "fp": 3631,
+            "fn": 265,
+            "tp": 1433
+          },
+          "sensitivity_recall": 0.8439340400471143,
+          "sensitivity_95ci": [
+            0.8258975182977766,
+            0.8604178238586262
+          ],
+          "specificity": 0.7733741105979278,
+          "specificity_95ci": [
+            0.7668264540668127,
+            0.7797907045602886
+          ],
+          "precision_ppv": 0.2829778830963665,
+          "f1": 0.4238391008577344,
+          "roc_auc": 0.8841427217493496,
+          "note": "window-level; consecutive windows overlap so CIs are optimistic"
+        }
+      }
+    },
+    "etpdvis": {
+      "status": "evaluated",
+      "task": "classification",
+      "label": "PD (1) vs healthy control (0)",
+      "unit": "one participant = 6 visualisation images (TMT A/B/C x heatmap + scanpath)",
+      "note": "dataset ships rendered images, not raw gaze samples; image statistics are a weak proxy and the sample is very small (12 HC / 28 PD). Ink coverage mostly tracks how long the participant looked (task duration), so high scores here are not evidence of a gaze biomarker",
+      "n_rows": 40,
+      "n_participants": 40,
+      "n_positive_participants": 28,
+      "features": [
+        "Heatmaps_TMT_A_colored_fraction",
+        "Heatmaps_TMT_A_mean_saturation",
+        "Heatmaps_TMT_A_gray_entropy",
+        "Heatmaps_TMT_A_sat_hist_entropy",
+        "Heatmaps_TMT_A_spread_x",
+        "Heatmaps_TMT_A_spread_y",
+        "Heatmaps_TMT_A_centroid_x",
+        "Heatmaps_TMT_A_centroid_y",
+        "Heatmaps_TMT_B_colored_fraction",
+        "Heatmaps_TMT_B_mean_saturation",
+        "Heatmaps_TMT_B_gray_entropy",
+        "Heatmaps_TMT_B_sat_hist_entropy",
+        "Heatmaps_TMT_B_spread_x",
+        "Heatmaps_TMT_B_spread_y",
+        "Heatmaps_TMT_B_centroid_x",
+        "Heatmaps_TMT_B_centroid_y",
+        "Heatmaps_TMT_C_colored_fraction",
+        "Heatmaps_TMT_C_mean_saturation",
+        "Heatmaps_TMT_C_gray_entropy",
+        "Heatmaps_TMT_C_sat_hist_entropy",
+        "Heatmaps_TMT_C_spread_x",
+        "Heatmaps_TMT_C_spread_y",
+        "Heatmaps_TMT_C_centroid_x",
+        "Heatmaps_TMT_C_centroid_y",
+        "Scanpaths_TMT_A_colored_fraction",
+        "Scanpaths_TMT_A_mean_saturation",
+        "Scanpaths_TMT_A_gray_entropy",
+        "Scanpaths_TMT_A_sat_hist_entropy",
+        "Scanpaths_TMT_A_spread_x",
+        "Scanpaths_TMT_A_spread_y",
+        "Scanpaths_TMT_A_centroid_x",
+        "Scanpaths_TMT_A_centroid_y",
+        "Scanpaths_TMT_B_colored_fraction",
+        "Scanpaths_TMT_B_mean_saturation",
+        "Scanpaths_TMT_B_gray_entropy",
+        "Scanpaths_TMT_B_sat_hist_entropy",
+        "Scanpaths_TMT_B_spread_x",
+        "Scanpaths_TMT_B_spread_y",
+        "Scanpaths_TMT_B_centroid_x",
+        "Scanpaths_TMT_B_centroid_y",
+        "Scanpaths_TMT_C_colored_fraction",
+        "Scanpaths_TMT_C_mean_saturation",
+        "Scanpaths_TMT_C_gray_entropy",
+        "Scanpaths_TMT_C_sat_hist_entropy",
+        "Scanpaths_TMT_C_spread_x",
+        "Scanpaths_TMT_C_spread_y",
+        "Scanpaths_TMT_C_centroid_x",
+        "Scanpaths_TMT_C_centroid_y"
+      ],
+      "cv": "StratifiedGroupKFold x5 repeats",
+      "results": {
+        "dummy_most_frequent": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.5,
+            "f1": 0.8235294117647058,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "roc_auc": 0.4285714285714286,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.2599263322884013,
+              0.5931421568627452
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.42857142857142866,
+            "sd": 5.551115123125783e-17,
+            "repeats": 5
+          }
+        },
+        "logistic_regression": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 1.0,
+            "f1": 1.0,
+            "sensitivity": 1.0,
+            "specificity": 1.0,
+            "roc_auc": 1.0,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.9999999999999999,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "repeats": 5
+          }
+        },
+        "random_forest": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.9583333333333333,
+            "f1": 0.9824561403508771,
+            "sensitivity": 1.0,
+            "specificity": 0.9166666666666666,
+            "roc_auc": 0.9970238095238095,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.9800000000000001,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.9970238095238095,
+            "sd": 0.004610694459770718,
+            "repeats": 5
+          }
+        },
+        "hist_gradient_boosting": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 0.8988095238095238,
+            "f1": 0.9473684210526315,
+            "sensitivity": 0.9642857142857143,
+            "specificity": 0.8333333333333334,
+            "roc_auc": 0.9791666666666666,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.9239794270833334,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.949702380952381,
+            "sd": 0.026759246182129725,
+            "repeats": 5
+          }
+        },
+        "neural_net_mlp": {
+          "recording_level": {
+            "n": 40,
+            "balanced_accuracy": 1.0,
+            "f1": 1.0,
+            "sensitivity": 1.0,
+            "specificity": 1.0,
+            "roc_auc": 1.0,
+            "roc_auc_95ci_participant_bootstrap": [
+              0.9999999999999999,
+              1.0
+            ]
+          },
+          "roc_auc_across_repeats": {
+            "mean": 0.9952380952380953,
+            "sd": 0.006941609398625375,
+            "repeats": 5
+          }
+        }
+      },
+      "best_model": "logistic_regression",
+      "seconds": 38.1,
+      "quality_flags": [
+        "SUSPICIOUSLY_HIGH: near-perfect separation on a tiny sample usually means a confound or label leakage (recording setup, rendering, task duration); do not rely on this model",
+        "SMALL_SAMPLE: only 40 participants",
+        "TINY_TEST_SET: independent test has only 10 participants; its metrics are unstable"
+      ],
+      "usable_for_research_scores": false,
+      "independent_test": {
+        "protocol": "independent held-out participants (1/4, stratified & grouped, seed 42); model + Youden threshold chosen on training participants only",
+        "train_participants": 30,
+        "test_participants": 10,
+        "model_selected": "logistic_regression",
+        "inner_cv_auc_by_model": {
+          "logistic_regression": 1.0,
+          "random_forest": 1.0,
+          "hist_gradient_boosting": 0.8412698412698414,
+          "neural_net_mlp": 1.0
+        },
+        "youden_j_train_oof": 1.0,
+        "test": {
+          "n": 10,
+          "threshold": 0.7042,
+          "confusion_matrix": {
+            "tn": 3,
+            "fp": 0,
+            "fn": 0,
+            "tp": 7
+          },
+          "sensitivity_recall": 1.0,
+          "sensitivity_95ci": [
+            0.6456611570247934,
+            1.0
+          ],
+          "specificity": 1.0,
+          "specificity_95ci": [
+            0.43849391955098227,
+            1.0
+          ],
+          "precision_ppv": 1.0,
+          "f1": 1.0,
+          "balanced_accuracy": 1.0,
+          "roc_auc": 1.0,
+          "brier": 0.006108230018532618,
+          "abstention_margin": 0.1,
+          "indeterminate_fraction": 0.0,
+          "decided_only": {
+            "n": 10,
+            "confusion_matrix": {
+              "tn": 3,
+              "fp": 0,
+              "fn": 0,
+              "tp": 7
+            },
+            "sensitivity": 1.0,
+            "specificity": 1.0
+          }
+        }
+      }
+    }
+  },
+  "severity_substratification": {
+    "gaitndd:hoehn_yahr": {
+      "task": "regression",
+      "label": "Hoehn & Yahr stage (PD participants only)",
+      "unit": "one walk per participant",
+      "loo": true,
+      "n_rows": 15,
+      "n_participants": 15,
+      "results": {
+        "dummy_mean": {
+          "mae": 0.7571428571428572,
+          "spearman_rho": -1.0
+        },
+        "ridge": {
+          "mae": 0.7953314480447103,
+          "spearman_rho": 0.6913533572797683
+        },
+        "random_forest": {
+          "mae": 0.6260890532307198,
+          "spearman_rho": 0.4547894764068502
+        },
+        "hist_gradient_boosting": {
+          "mae": 0.47603622037886595,
+          "spearman_rho": 0.6069972447204331
+        },
+        "neural_net_mlp": {
+          "mae": 1.7699521074061022,
+          "spearman_rho": 0.24940068061020823
+        }
+      },
+      "best_model": "hist_gradient_boosting",
+      "flag": "BEATS_BASELINE"
+    },
+    "gaitndd:early_vs_advanced": {
+      "task": "classification",
+      "label": "H&Y >= 3 (moderate-advanced) vs <= 2.5 (early)",
+      "unit": "one walk per participant",
+      "loo": true,
+      "n_rows": 15,
+      "n_participants": 15,
+      "results": {
+        "dummy_most_frequent": {
+          "roc_auc": 0.0,
+          "at_youden_threshold_optimistic": {
+            "n": 15,
+            "threshold": 0.5714,
+            "confusion_matrix": {
+              "tn": 0,
+              "fp": 6,
+              "fn": 0,
+              "tp": 9
+            },
+            "sensitivity_recall": 1.0,
+            "sensitivity_95ci": [
+              0.7008472464490407,
+              1.0
+            ],
+            "specificity": 0.0,
+            "specificity_95ci": [
+              0.0,
+              0.3903430336530645
+            ],
+            "precision_ppv": 0.6,
+            "f1": 0.7499999999999999,
+            "balanced_accuracy": 0.5,
+            "roc_auc": 0.0,
+            "brier": 0.27551020408163274,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 15,
+              "confusion_matrix": {
+                "tn": 0,
+                "fp": 6,
+                "fn": 0,
+                "tp": 9
+              },
+              "sensitivity": 1.0,
+              "specificity": 0.0
+            }
+          }
+        },
+        "logistic_regression": {
+          "roc_auc": 0.8703703703703703,
+          "at_youden_threshold_optimistic": {
+            "n": 15,
+            "threshold": 0.6225,
+            "confusion_matrix": {
+              "tn": 6,
+              "fp": 0,
+              "fn": 2,
+              "tp": 7
+            },
+            "sensitivity_recall": 0.7777777777777778,
+            "sensitivity_95ci": [
+              0.4525833436728054,
+              0.9367762376877727
+            ],
+            "specificity": 1.0,
+            "specificity_95ci": [
+              0.6096569663469354,
+              0.9999999999999999
+            ],
+            "precision_ppv": 1.0,
+            "f1": 0.8750000000000001,
+            "balanced_accuracy": 0.8888888888888888,
+            "roc_auc": 0.8703703703703703,
+            "brier": 0.15935413940772153,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 15,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 0,
+                "fn": 2,
+                "tp": 7
+              },
+              "sensitivity": 0.7777777777777778,
+              "specificity": 1.0
+            }
+          }
+        },
+        "random_forest": {
+          "roc_auc": 0.7407407407407407,
+          "at_youden_threshold_optimistic": {
+            "n": 15,
+            "threshold": 0.2764,
+            "confusion_matrix": {
+              "tn": 3,
+              "fp": 3,
+              "fn": 0,
+              "tp": 9
+            },
+            "sensitivity_recall": 1.0,
+            "sensitivity_95ci": [
+              0.7008472464490407,
+              1.0
+            ],
+            "specificity": 0.5,
+            "specificity_95ci": [
+              0.18761280689940868,
+              0.8123871931005913
+            ],
+            "precision_ppv": 0.75,
+            "f1": 0.8571428571428571,
+            "balanced_accuracy": 0.75,
+            "roc_auc": 0.7407407407407407,
+            "brier": 0.19687550738641135,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 15,
+              "confusion_matrix": {
+                "tn": 3,
+                "fp": 3,
+                "fn": 0,
+                "tp": 9
+              },
+              "sensitivity": 1.0,
+              "specificity": 0.5
+            }
+          }
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.8333333333333334,
+          "at_youden_threshold_optimistic": {
+            "n": 15,
+            "threshold": 0.9996,
+            "confusion_matrix": {
+              "tn": 6,
+              "fp": 0,
+              "fn": 4,
+              "tp": 5
+            },
+            "sensitivity_recall": 0.5555555555555556,
+            "sensitivity_95ci": [
+              0.2666473457440297,
+              0.811224570528086
+            ],
+            "specificity": 1.0,
+            "specificity_95ci": [
+              0.6096569663469354,
+              0.9999999999999999
+            ],
+            "precision_ppv": 1.0,
+            "f1": 0.7142857142857143,
+            "balanced_accuracy": 0.7777777777777778,
+            "roc_auc": 0.8333333333333334,
+            "brier": 0.2698310471130799,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 15,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 0,
+                "fn": 4,
+                "tp": 5
+              },
+              "sensitivity": 0.5555555555555556,
+              "specificity": 1.0
+            }
+          }
+        },
+        "neural_net_mlp": {
+          "roc_auc": 0.6111111111111112,
+          "at_youden_threshold_optimistic": {
+            "n": 15,
+            "threshold": 0.0019,
+            "confusion_matrix": {
+              "tn": 2,
+              "fp": 4,
+              "fn": 0,
+              "tp": 9
+            },
+            "sensitivity_recall": 1.0,
+            "sensitivity_95ci": [
+              0.7008472464490407,
+              1.0
+            ],
+            "specificity": 0.3333333333333333,
+            "specificity_95ci": [
+              0.09676933255921683,
+              0.7000116786584712
+            ],
+            "precision_ppv": 0.6923076923076923,
+            "f1": 0.8181818181818181,
+            "balanced_accuracy": 0.6666666666666666,
+            "roc_auc": 0.6111111111111112,
+            "brier": 0.4062081633204858,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 15,
+              "confusion_matrix": {
+                "tn": 2,
+                "fp": 4,
+                "fn": 0,
+                "tp": 9
+              },
+              "sensitivity": 1.0,
+              "specificity": 0.3333333333333333
+            }
+          }
+        }
+      },
+      "best_model": "logistic_regression",
+      "flag": "ABOVE_CHANCE"
+    },
+    "telemonitoring:motor_updrs_tier": {
+      "task": "classification",
+      "label": "motor UPDRS >= 20 vs < 20 (early-PD cohort)",
+      "unit": "home voice recording",
+      "n_rows": 5875,
+      "n_participants": 42,
+      "results": {
+        "dummy_most_frequent": {
+          "roc_auc": 0.5891203703703705,
+          "at_youden_threshold_optimistic": {
+            "n": 42,
+            "threshold": 0.5262,
+            "confusion_matrix": {
+              "tn": 11,
+              "fp": 13,
+              "fn": 5,
+              "tp": 13
+            },
+            "sensitivity_recall": 0.7222222222222222,
+            "sensitivity_95ci": [
+              0.49126922453805477,
+              0.8750043085364452
+            ],
+            "specificity": 0.4583333333333333,
+            "specificity_95ci": [
+              0.2789105835168143,
+              0.6492544644689336
+            ],
+            "precision_ppv": 0.5,
+            "f1": 0.5909090909090908,
+            "balanced_accuracy": 0.5902777777777778,
+            "roc_auc": 0.5891203703703705,
+            "brier": 0.25454979769416286,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 42,
+              "confusion_matrix": {
+                "tn": 11,
+                "fp": 13,
+                "fn": 5,
+                "tp": 13
+              },
+              "sensitivity": 0.7222222222222222,
+              "specificity": 0.4583333333333333
+            }
+          }
+        },
+        "logistic_regression": {
+          "roc_auc": 0.6018518518518517,
+          "at_youden_threshold_optimistic": {
+            "n": 42,
+            "threshold": 0.4217,
+            "confusion_matrix": {
+              "tn": 10,
+              "fp": 14,
+              "fn": 1,
+              "tp": 17
+            },
+            "sensitivity_recall": 0.9444444444444444,
+            "sensitivity_95ci": [
+              0.7424220019799247,
+              0.9901250641690756
+            ],
+            "specificity": 0.4166666666666667,
+            "specificity_95ci": [
+              0.24467347246538232,
+              0.6116566235061137
+            ],
+            "precision_ppv": 0.5483870967741935,
+            "f1": 0.6938775510204082,
+            "balanced_accuracy": 0.6805555555555556,
+            "roc_auc": 0.6018518518518517,
+            "brier": 0.2459383332072701,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 42,
+              "confusion_matrix": {
+                "tn": 10,
+                "fp": 14,
+                "fn": 1,
+                "tp": 17
+              },
+              "sensitivity": 0.9444444444444444,
+              "specificity": 0.4166666666666667
+            }
+          }
+        },
+        "random_forest": {
+          "roc_auc": 0.5300925925925926,
+          "at_youden_threshold_optimistic": {
+            "n": 42,
+            "threshold": 0.5264,
+            "confusion_matrix": {
+              "tn": 18,
+              "fp": 6,
+              "fn": 9,
+              "tp": 9
+            },
+            "sensitivity_recall": 0.5,
+            "sensitivity_95ci": [
+              0.2903070395897999,
+              0.7096929604102
+            ],
+            "specificity": 0.75,
+            "specificity_95ci": [
+              0.5510017468789357,
+              0.8800079652065766
+            ],
+            "precision_ppv": 0.6,
+            "f1": 0.5454545454545454,
+            "balanced_accuracy": 0.625,
+            "roc_auc": 0.5300925925925926,
+            "brier": 0.2582871472948656,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 42,
+              "confusion_matrix": {
+                "tn": 18,
+                "fp": 6,
+                "fn": 9,
+                "tp": 9
+              },
+              "sensitivity": 0.5,
+              "specificity": 0.75
+            }
+          }
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.45833333333333337,
+          "at_youden_threshold_optimistic": {
+            "n": 42,
+            "threshold": 0.5259,
+            "confusion_matrix": {
+              "tn": 17,
+              "fp": 7,
+              "fn": 11,
+              "tp": 7
+            },
+            "sensitivity_recall": 0.3888888888888889,
+            "sensitivity_95ci": [
+              0.20304991926931162,
+              0.6138133141934384
+            ],
+            "specificity": 0.7083333333333334,
+            "specificity_95ci": [
+              0.508319363412903,
+              0.8508553966583573
+            ],
+            "precision_ppv": 0.5,
+            "f1": 0.43750000000000006,
+            "balanced_accuracy": 0.5486111111111112,
+            "roc_auc": 0.45833333333333337,
+            "brier": 0.2664539726844914,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 42,
+              "confusion_matrix": {
+                "tn": 17,
+                "fp": 7,
+                "fn": 11,
+                "tp": 7
+              },
+              "sensitivity": 0.3888888888888889,
+              "specificity": 0.7083333333333334
+            }
+          }
+        },
+        "neural_net_mlp": {
+          "roc_auc": 0.5694444444444444,
+          "at_youden_threshold_optimistic": {
+            "n": 42,
+            "threshold": 0.5404,
+            "confusion_matrix": {
+              "tn": 15,
+              "fp": 9,
+              "fn": 7,
+              "tp": 11
+            },
+            "sensitivity_recall": 0.6111111111111112,
+            "sensitivity_95ci": [
+              0.3861866858065617,
+              0.7969500807306884
+            ],
+            "specificity": 0.625,
+            "specificity_95ci": [
+              0.42709619037907065,
+              0.7884086656636855
+            ],
+            "precision_ppv": 0.55,
+            "f1": 0.5789473684210527,
+            "balanced_accuracy": 0.6180555555555556,
+            "roc_auc": 0.5694444444444444,
+            "brier": 0.2656258230485579,
+            "abstention_margin": 0.0,
+            "indeterminate_fraction": 0.0,
+            "decided_only": {
+              "n": 42,
+              "confusion_matrix": {
+                "tn": 15,
+                "fp": 9,
+                "fn": 7,
+                "tp": 11
+              },
+              "sensitivity": 0.6111111111111112,
+              "specificity": 0.625
+            }
+          }
+        }
+      },
+      "best_model": "logistic_regression",
+      "flag": "CHANCE_LEVEL"
+    },
+    "speech_multi:updrs": {
+      "task": "regression",
+      "label": "UPDRS (PD participants only)",
+      "unit": "speech recording",
+      "n_rows": 520,
+      "n_participants": 20,
+      "results": {
+        "dummy_mean": {
+          "mae": 13.46875,
+          "spearman_rho": -0.5126616625545594
+        },
+        "ridge": {
+          "mae": 15.871098048985795,
+          "spearman_rho": -0.3863195198668586
+        },
+        "random_forest": {
+          "mae": 15.308413936624273,
+          "spearman_rho": -0.3197875121883355
+        },
+        "hist_gradient_boosting": {
+          "mae": 15.690062464152753,
+          "spearman_rho": -0.2615285510835837
+        },
+        "neural_net_mlp": {
+          "mae": 17.77364754025761,
+          "spearman_rho": -0.25371010424073476
+        }
+      },
+      "best_model": "random_forest",
+      "flag": "NO_BETTER_THAN_BASELINE"
+    }
+  },
+  "differential_gait": {
+    "task": "multiclass",
+    "classes": [
+      "control",
+      "parkinsons",
+      "huntingtons",
+      "als"
+    ],
+    "label": "gait pattern group (differential, research)",
+    "unit": "one ~5 min walk per participant (force-sensitive insoles)",
+    "n_participants": 64,
+    "class_counts": {
+      "control": 16,
+      "parkinsons": 15,
+      "huntingtons": 20,
+      "als": 13
+    },
+    "cv": "stratified 5-fold (one recording per participant)",
+    "results": {
+      "dummy_most_frequent": {
+        "macro_f1": 0.11904761904761904,
+        "balanced_accuracy": 0.25,
+        "per_class_recall": {
+          "control": 0.0,
+          "parkinsons": 0.0,
+          "huntingtons": 1.0,
+          "als": 0.0
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            16,
+            0
+          ],
+          [
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            20,
+            0
+          ],
+          [
+            0,
+            0,
+            13,
+            0
+          ]
+        ],
+        "macro_roc_auc_ovr": 0.4730229889705008
+      },
+      "logistic_regression": {
+        "macro_f1": 0.6632868089764641,
+        "balanced_accuracy": 0.677724358974359,
+        "per_class_recall": {
+          "control": 0.875,
+          "parkinsons": 0.4666666666666667,
+          "huntingtons": 0.6,
+          "als": 0.7692307692307693
+        },
+        "confusion_matrix": [
+          [
+            14,
+            1,
+            0,
+            1
+          ],
+          [
+            2,
+            7,
+            3,
+            3
+          ],
+          [
+            3,
+            3,
+            12,
+            2
+          ],
+          [
+            1,
+            2,
+            0,
+            10
+          ]
+        ],
+        "macro_roc_auc_ovr": 0.8581014710298455
+      },
+      "random_forest": {
+        "macro_f1": 0.5563420563420564,
+        "balanced_accuracy": 0.5663461538461538,
+        "per_class_recall": {
+          "control": 0.75,
+          "parkinsons": 0.4,
+          "huntingtons": 0.5,
+          "als": 0.6153846153846154
+        },
+        "confusion_matrix": [
+          [
+            12,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            6,
+            4,
+            4
+          ],
+          [
+            4,
+            5,
+            10,
+            1
+          ],
+          [
+            4,
+            1,
+            0,
+            8
+          ]
+        ],
+        "macro_roc_auc_ovr": 0.8241033530982323
+      },
+      "hist_gradient_boosting": {
+        "macro_f1": 0.5296164054600607,
+        "balanced_accuracy": 0.5300480769230769,
+        "per_class_recall": {
+          "control": 0.8125,
+          "parkinsons": 0.4,
+          "huntingtons": 0.6,
+          "als": 0.3076923076923077
+        },
+        "confusion_matrix": [
+          [
+            13,
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            6,
+            6,
+            3
+          ],
+          [
+            2,
+            3,
+            12,
+            3
+          ],
+          [
+            1,
+            5,
+            3,
+            4
+          ]
+        ],
+        "macro_roc_auc_ovr": 0.8029217029906368
+      },
+      "neural_net_mlp": {
+        "macro_f1": 0.6506756756756756,
+        "balanced_accuracy": 0.6564102564102563,
+        "per_class_recall": {
+          "control": 0.75,
+          "parkinsons": 0.5333333333333333,
+          "huntingtons": 0.65,
+          "als": 0.6923076923076923
+        },
+        "confusion_matrix": [
+          [
+            12,
+            0,
+            2,
+            2
+          ],
+          [
+            2,
+            8,
+            2,
+            3
+          ],
+          [
+            4,
+            2,
+            13,
+            1
+          ],
+          [
+            1,
+            3,
+            0,
+            9
+          ]
+        ],
+        "macro_roc_auc_ovr": 0.8782368864285224
+      }
+    },
+    "best_model": "logistic_regression"
+  },
+  "deep_learning_daphnet_cnn": {
+    "model": "1-D CNN (NumPy): Conv(3\u219216,k9)-ReLU-MaxPool4-Conv(16\u219232,k7)-ReLU-GAP-Dense(2)",
+    "input": "raw ankle acceleration, 3 \u00d7 256 samples (4 s @ 64 Hz), per-window mean removed",
+    "protocol": "leave-one-subject-out; decision threshold tuned on a held-out TRAINING subject",
+    "test": {
+      "n_windows": 17720,
+      "confusion_matrix": {
+        "tn": 11647,
+        "fp": 4375,
+        "fn": 501,
+        "tp": 1197
+      },
+      "sensitivity_recall": 0.7049469964664311,
+      "sensitivity_95ci": [
+        0.6828111316726172,
+        0.7261575996123625
+      ],
+      "specificity": 0.7269379603045812,
+      "specificity_95ci": [
+        0.7199853173089216,
+        0.7337818034143982
+      ],
+      "precision_ppv": 0.21482412060301506,
+      "f1": 0.3292984869325997,
+      "roc_auc": 0.8498085266739389,
+      "note": "window-level; overlapping windows make intervals optimistic"
+    },
+    "per_subject_auc": {
+      "S01": 0.954451230797705,
+      "S02": 0.8306458869472889,
+      "S03": 0.9039507978860398,
+      "S05": 0.8178473934108907,
+      "S06": 0.9221922374120195,
+      "S07": 0.9380759442499748,
+      "S08": 0.7560466870811698,
+      "S09": 0.9119285524803254
+    },
+    "seconds": 417.2
+  }
+}
